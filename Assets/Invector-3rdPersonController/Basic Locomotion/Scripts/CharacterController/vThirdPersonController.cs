@@ -290,11 +290,6 @@ namespace Invector.vCharacterController
             currentStaminaRecoveryDelay = 2f;
         }
 
-        public virtual void Chop()
-        {
-            animator.CrossFadeInFixedTime("Chop", rollTransition);
-        }
-
 
         #region Check Action Triggers 
 
