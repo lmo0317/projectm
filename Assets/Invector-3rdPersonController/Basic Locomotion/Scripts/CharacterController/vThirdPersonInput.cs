@@ -31,6 +31,7 @@ namespace Invector.vCharacterController
         public GenericInput strafeInput = new GenericInput("Tab", "RightStickClick", "RightStickClick");
         public GenericInput jumpInput = new GenericInput("Space", "X", "X");
         public GenericInput rollInput = new GenericInput("Q", "B", "B");
+        public GenericInput chopInput = new GenericInput("F", "A", "A");
 
         [HideInInspector] public bool lockInput;
 
@@ -433,7 +434,8 @@ namespace Invector.vCharacterController
             CrouchInput();
             StrafeInput();
             JumpInput();
-            RollInput();
+            //RollInput();
+            ChopInput();
         }
 
         public virtual void MoveInput()
@@ -536,6 +538,14 @@ namespace Invector.vCharacterController
             if (rollInput.GetButtonDown() && RollConditions())
             {
                 cc.Roll();
+            }
+        }
+
+        protected virtual void ChopInput()
+        {
+            if(chopInput.GetButtonDown() && !cc.isChopping)
+            {
+                cc.Chop();
             }
         }
 

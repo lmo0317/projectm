@@ -278,7 +278,8 @@ namespace Invector.vCharacterController
             isRolling,
             isJumping,
             isInAirborne,
-            isTurningOnSpot;
+            isTurningOnSpot,
+            isChopping;
 
         internal bool customAction;
 

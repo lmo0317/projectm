@@ -109,6 +109,8 @@ namespace Invector.vCharacterController
             customAction = IsAnimatorTag("CustomAction");
             // identify if the controller is airborne
             isInAirborne = IsAnimatorTag("Airborne");
+
+            isChopping = IsAnimatorTag("IsChopping");
         }
 
         public virtual void UpdateAnimatorParameters()
