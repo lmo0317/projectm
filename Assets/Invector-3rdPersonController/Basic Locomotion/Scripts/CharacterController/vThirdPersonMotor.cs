@@ -9,6 +9,8 @@ namespace Invector.vCharacterController
     public class vThirdPersonMotor : vCharacter, vIAnimatorStateInfoController
     {
         #region Variables               
+        RaycastHit hit;
+        float maxDistance = 300f;
 
         #region Stamina       
 
@@ -506,6 +508,22 @@ namespace Invector.vCharacterController
             AirControl();
             StaminaRecovery();
             CalculateRotationMagnitude();
+
+            UpdateRayCast();
+        }
+
+        public void UpdateRayCast()
+        {
+            Debug.DrawRay(transform.position, transform.forward * 1000f, Color.red);
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         #region Health & Stamina
