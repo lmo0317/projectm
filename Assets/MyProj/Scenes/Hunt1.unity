@@ -7414,7 +7414,7 @@ MonoBehaviour:
   behindTargetSmoothRotation: 1
   lockCamera: 0
   offsetMouse: {x: 0, y: 0}
-  indexList: 1
+  indexList: 0
   indexLookPoint: 0
   offSetPlayerPivot: 0
   distance: 5
@@ -7444,7 +7444,7 @@ MonoBehaviour:
     fixedAngle: {x: 0, y: 0}
     lookPoints: []
     cameraMode: 0
-  CameraStateList: {fileID: 11400000, guid: 28169608db76f4745828d420c39408bf, type: 2}
+  CameraStateList: {fileID: 11400000, guid: 77e476d6f5332c14fbf0525e160c60e6, type: 2}
   lockTarget: {fileID: 0}
   movementSpeed: {x: 0, y: 0}
   lerpState:
@@ -8510,7 +8510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9cd2612f5273b4f8d6e5ce4bb4130a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tpInput: {fileID: 1081785606}
 --- !u!4 &1680460462
 Transform:
   m_ObjectHideFlags: 0
