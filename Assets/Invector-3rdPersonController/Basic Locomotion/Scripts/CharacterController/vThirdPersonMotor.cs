@@ -10,7 +10,7 @@ namespace Invector.vCharacterController
     {
         #region Variables               
         RaycastHit hit;
-        float maxDistance = 300f;
+        float maxDistance = 1f;
 
         #region Stamina       
 
@@ -510,15 +510,22 @@ namespace Invector.vCharacterController
             CalculateRotationMagnitude();
 
             UpdateRayCast();
+            ChopHitCheck();
         }
 
         public void UpdateRayCast()
         {
-            Debug.DrawRay(transform.position, transform.forward * 1000f, Color.red);
+            Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
+        }
 
+        public void ChopHitCheck()
+        {
             if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
             {
-
+                if (hit.collider.gameObject.tag == "CollectionTree")
+                {
+                    Debug.Log("[ChopHitCheck()] [Hit] [CollectionTree]");
+                }
             }
             else
             {
