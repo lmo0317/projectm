@@ -1,32 +1,35 @@
+using Invector.vCharacterController;
 using System.Collections;
 using System.Collections.Generic;
-using Invector.vCharacterController;
 using UnityEngine;
 
 public class CollectionTree : CollectionObject
 {
-    public const float force = 30.0f;
+    //const
+    public const float FORCE = 30;
 
+    //public
     public GameObject _debrisPrefab;
 
-    private Rigidbody rigidBody;
+    //private
+    private Rigidbody _rigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
-        rigidBody.isKinematic = true;
+        _rigidBody = GetComponent<Rigidbody>();
+        _rigidBody.isKinematic = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision == null)
+        if (collision == null) 
             return;
 
         if (collision.collider == null)
@@ -36,28 +39,24 @@ public class CollectionTree : CollectionObject
         if (playerController == null)
             return;
 
-        if (playerController.isChopping && collision.collider.gameObject.tag == "Weapon")
+        if(playerController.isChopping && collision.collider.gameObject.tag == "Weapon")
         {
-            MakeEffect(collision);
-            Break(collision);
+            CreateEffect(collision);
+            ProcessDestory(collision);
         }
     }
-
-    private void MakeEffect(Collision collision)
+    private void CreateEffect(Collision collision)
     {
         var clone = Instantiate(_debrisPrefab, collision.contacts[0].point, collision.transform.rotation);
         clone.SetActive(true);
         Destroy(clone, 3.0f);
     }
-
-    private void Break(Collision collision)
+    private void ProcessDestory(Collision collision)
     {
-        rigidBody.isKinematic = false;
-
+        _rigidBody.isKinematic = false;
         Vector3 dir = collision.contacts[0].point - transform.position;
         dir = -dir.normalized;
-        rigidBody.AddForce(dir * force);
-
-        Destroy(this, 3.0f);
+        GetComponent<Rigidbody>().AddForce(dir * FORCE);
+        Destroy(gameObject, 3.0f);
     }
 }
