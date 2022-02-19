@@ -18,7 +18,7 @@ public class CollectionTree : CollectionObject
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
-        _rigidBody.isKinematic = true;
+        //_rigidBody.isKinematic = true;
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class CollectionTree : CollectionObject
     }
     private void ProcessDestory(Collision collision)
     {
-        _rigidBody.isKinematic = false;
+        //_rigidBody.isKinematic = false;
         Vector3 dir = collision.contacts[0].point - transform.position;
         dir = -dir.normalized;
         GetComponent<Rigidbody>().AddForce(dir * FORCE);

@@ -30,6 +30,7 @@ TagManager:
   - CoverPoint
   - Interactable
   - AIAction
+  - CollectionTree
   layers:
   - Default
   - TransparentFX
@@ -50,8 +51,8 @@ TagManager:
   - BlockAIRayCast
   - Pushable
   - CoverPoint
-  - 
-  - 
+  - Collection
+  - Weapon
   - 
   - 
   - 
