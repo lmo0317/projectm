@@ -9,7 +9,7 @@ public class MapManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            Instantiate(Resources.Load("map/game/sector/sector1"), new Vector3(0, 0, i*10), Quaternion.identity);
+            Instantiate(Resources.Load("map/game/sector/sector2"), new Vector3(0, 0, i*10), Quaternion.identity);
         }
     }
 

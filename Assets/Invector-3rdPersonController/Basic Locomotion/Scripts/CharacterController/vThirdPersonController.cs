@@ -326,6 +326,18 @@ namespace Invector.vCharacterController
             base.OnTriggerExit(other);
         }
 
+        public void JumpLeft()
+        {
+            Debug.Log("JumpLeft");
+            moveDirection = new Vector3(-30, 0, 30);
+            Jump();
+        }
+
+        public void JumpRight()
+        {
+            Debug.Log("JumpRight");
+        }
+
         #endregion
     }
 }
